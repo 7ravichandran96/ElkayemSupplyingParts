@@ -43,26 +43,20 @@ document.addEventListener("DOMContentLoaded", () => {
     setTimeout(() => toast.classList.remove("show"), 3000);
   }
 
-  fetch("images.json")
-    .then(res => {
-      if (!res.ok) throw new Error("Not found");
-      return res.json();
-    })
-    .then(json => {
-      data = json.map(p => ({
-        ...p,
-        id: `${p["customer name"]}${p["part number"]}`.replace(/\s+/g, "")
-      }));
-      renderUI();
-      showToast("success", "load", "", "images.json loaded");
-      navBar.classList.add("hide");
-      mainContent.classList.add("full");
-      toggleBtn.classList.add("inverted");
-      navIcon.className = "fas fa-bars";
-    })
-    .catch(() => {
-      showToast("warning", "load", "", "images.json not found");
-    });
+  fetch("./images.json")
+  .then(res => {
+    console.log("Fetch response:", res);
+    if (!res.ok) throw new Error("JSON not found");
+    return res.json();
+  })
+  .then(json => {
+    console.log("JSON loaded:", json);
+    // continue...
+  })
+  .catch(err => {
+    console.error("Error loading JSON:", err);
+    showToast("warning", "load", "", "images.json not found");
+  });
 
   window.addEventListener("scroll", () => {
     const scroll = window.scrollY;
