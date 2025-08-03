@@ -11,6 +11,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const toast = $("toast");
   const zoomPreview = $("zoomPreview");
   const zoomImage = $("zoomImage");
+  const closeZoom = $("closeZoom");
   const toggleBtn = $("toggleNav");
 
   const navIcon = document.createElement("i");
@@ -185,6 +186,24 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
+  // ✅ Close button in zoom preview
+  closeZoom.addEventListener("click", () => {
+    zoomPreview.classList.add("hidden");
+    zoomImage.style.transform = "none";
+    zoomPreview.onmousemove = null;
+    showToast("info", "close", "", "Closed image preview");
+  });
+
+  // ✅ Optional: click outside image to close preview
+  zoomPreview.addEventListener("click", e => {
+    if (e.target === zoomPreview) {
+      zoomPreview.classList.add("hidden");
+      zoomImage.style.transform = "none";
+      zoomPreview.onmousemove = null;
+      showToast("info", "close", "", "Closed preview");
+    }
+  });
+
   function renderUI() {
     renderNav();
     renderParts();
@@ -234,7 +253,6 @@ document.addEventListener("DOMContentLoaded", () => {
         zoomImage.src = img.src;
         zoomPreview.classList.remove("hidden");
 
-        // Handle mouse-based rotation
         zoomPreview.onmousemove = e => {
           const rect = zoomPreview.getBoundingClientRect();
           const centerX = rect.width / 2;
