@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Elkayem Supplying Parts</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
+
+  <!-- Icons CDNs -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/lucide-static@latest/font/lucide.css">
+</head>
+
+
+<body>
+
+  <!-- Scroll Progress -->
+  <div id="scrollIndicator"></div>
+
+  <!-- Header -->
+  <header class="header-bar">
+    <button id="toggleNav" class="btn icon icon-wrapper">
+      <i class="ri-menu-line fallback-icon" data-fallback="bi-list lucide-menu"></i>
+    </button>
+    <h1 id="headerTitle">Elkayem - Supplying Parts</h1>
+    <div class="header-controls">
+      <div class="search-box icon-wrapper">
+        <input type="text" id="searchInput" placeholder="Search parts..." />
+        <i class="ri-search-line fallback-icon" data-fallback="bi-search lucide-search"></i>
+      </div>
+      <div class="btn-group">
+        <button class="btn primary" id="addPartBtn">Add</button>
+        <button class="btn" id="downloadJson">Export</button>
+        <button class="btn" id="uploadJsonBtn">Load JSON</button>
+        <input type="file" id="jsonFileInput" accept=".json" class="hidden" />
+      </div>
+    </div>
+  </header>
+
+  <!-- Sidebar -->
+  <aside id="navBar" class="nav fixed-nav hide"></aside>
+
+  <!-- Main Content -->
+  <main class="main-content full">
+    <section id="partsContainer" class="flex-wrap"></section>
+    <div id="noData" class="no-data hidden">No parts found. Please upload or add data.</div>
+  </main>
+
+  <!-- Toast -->
+  <div id="toast" class="toast"></div>
+
+  <!-- Scroll to Top -->
+  <button id="scrollTopBtn" class="scroll-top icon-wrapper">
+    <i class="ri-arrow-up-line fallback-icon" data-fallback="bi-arrow-up lucide-arrow-up"></i>
+  </button>
+
+  <!-- Image Zoom Preview -->
+  <div id="zoomPreview" class="zoom-preview hidden">
+    <img id="zoomImage" src="" alt="Zoomed Image" />
+  </div>
+
+  <!-- Add/Edit Modal -->
+  <div class="modal hidden" id="modal">
+    <form class="form" id="partForm">
+      <h2 id="formTitle">Add New Part</h2>
+      <input type="hidden" id="partId" />
+      <div class="form-body">
+        <div class="form-fields">
+          <label for="customerName">Customer</label>
+          <input type="text" id="customerName" required />
+          <label for="model">Model</label>
+          <input type="text" id="model" required />
+          <label for="contribution">Contribution</label>
+          <input type="text" id="contribution" required />
+          <label for="partName">Part Name</label>
+          <input type="text" id="partName" required />
+          <label for="partNumber">Part Number</label>
+          <input type="text" id="partNumber" required />
+          <label>Upload Image</label>
+          <input type="file" id="imageFile" accept="image/*" />
+          
+        </div>
+        <div class="form-preview">
+          <img id="previewImg" class="preview" alt="Preview Image" />
+        </div>
+      </div>
+      <div class="form-actions">
+        <button type="button" class="btn secondary" id="cancelBtn">Cancel</button>
+        <button type="submit" class="btn primary">Save</button>
+      </div>
+    </form>
+  </div>
+
+  <!-- Delete Modal -->
+  <div class="modal hidden" id="deleteModal">
+    <div class="form">
+      <h3>Confirm Deletion</h3>
+      <p id="deleteText"></p>
+      <div class="form-actions">
+        <button id="cancelDelete" class="btn secondary">Cancel</button>
+        <button id="confirmDelete" class="btn primary">Delete</button>
+      </div>
+    </div>
+  </div>
+
+  <footer class="footer">
+  <div class="footer-content">
+    <p>&copy; 2025 <strong>Elkayem Supplying Parts</strong>. All rights reserved.</p>
+    <p>Version: <strong>1.0.0</strong></p>
+    <blockquote>
+      <strong>Designed by:</strong> R Ravichandran [2550] <br />
+      <strong>Department:</strong> Sales
+    </blockquote>
+  </div>
+</footer>
+
+
+  <!-- JS Scripts -->
+  <script src="script.js"></script>
+
+  <!-- Icon Fallback Logic -->
+  <script>
+    window.addEventListener("DOMContentLoaded", () => {
+      document.querySelectorAll(".fallback-icon").forEach(icon => {
+        const testIcon = document.createElement("i");
+        testIcon.className = icon.className;
+        document.body.appendChild(testIcon);
+        const hasIcon = window.getComputedStyle(testIcon).content !== "" || testIcon.offsetHeight > 0;
+        document.body.removeChild(testIcon);
+
+        if (!hasIcon) {
+          const fallbacks = icon.dataset.fallback?.split(" ") || [];
+          for (const cls of fallbacks) {
+            icon.className = cls + " fallback-icon";
+            const test = document.createElement("i");
+            test.className = cls;
+            document.body.appendChild(test);
+            const valid = test.offsetHeight > 0;
+            document.body.removeChild(test);
+            if (valid) break;
+          }
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>
