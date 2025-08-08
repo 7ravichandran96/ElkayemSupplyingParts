@@ -5,6 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Elkayem Supplying Parts</title>
   <link rel="stylesheet" href="styles.css" />
+  <link rel="icon" href="./favicon.png" type="image/png" />
+
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
 
   <!-- Icons CDNs -->
@@ -12,8 +14,6 @@
   <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
   <link rel="stylesheet" href="https://unpkg.com/lucide-static@latest/font/lucide.css">
 </head>
-
-
 <body>
 
   <!-- Scroll Progress -->
@@ -24,7 +24,7 @@
     <button id="toggleNav" class="btn icon icon-wrapper">
       <i class="ri-menu-line fallback-icon" data-fallback="bi-list lucide-menu"></i>
     </button>
-    <h1 id="headerTitle">Elkayem - Supplying Parts</h1>
+    <h1 id="headerTitle">Elkayem - All Parts</h1>
     <div class="header-controls">
       <div class="search-box icon-wrapper">
         <input type="text" id="searchInput" placeholder="Search parts..." />
@@ -60,10 +60,6 @@
   <div id="zoomPreview" class="zoom-preview hidden">
     <img id="zoomImage" src="" alt="Zoomed Image" />
   </div>
-<div id="zoomPreview" class="hidden">
-  <button id="closeZoom" class="close-btn">&times;</button>
-  <img id="zoomImage" />
-</div>
 
   <!-- Add/Edit Modal -->
   <div class="modal hidden" id="modal">
@@ -114,17 +110,24 @@
     <p>&copy; 2025 <strong>Elkayem Supplying Parts</strong>. All rights reserved.</p>
     <p>Version: <strong>1.0.0</strong></p>
     <blockquote>
-      <strong>Requested by:</strong> R Prabhakaran [Sales AM ] <br />
-      <strong>Designed by:</strong> R Ravichandran [Jr Officer ] <br />
-      <strong>Images Support:</strong> Chandru [ Design ] <br />
-    </strong> 
+     
+      <strong>Requested by:</strong><span><h3> R Prabhakaran  </h3></span><br />
+      <strong>Designed by:</strong> R Ravichandran  <br /><br />
+      <strong>Co - Support:</strong> Sales Department<br />
+      A Janathul Firdhous <br />
+      R Sivakumar  <br />
+      K Manoj Kumar <br />
+      N Poovizhi <br /><br />
+     
+      <strong>Department:</strong> NPD <br/>
+      <strong>Design Support By:</strong> R Chanthira Sekaran<br />
     </blockquote>
   </div>
 </footer>
 
 
   <!-- JS Scripts -->
-  <script src="script.js"></script>
+  <script src="./script.js"></script>
 
   <!-- Icon Fallback Logic -->
   <script>
