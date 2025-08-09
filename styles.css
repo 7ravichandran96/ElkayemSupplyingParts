@@ -413,3 +413,27 @@ body, html {
     touch-action: manipulation;
   }
 }
+
+/* Zoom Preview Close Button Styling */
+#zoomPreview .modal-close-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 24px;
+  background: rgba(0, 0, 0, 0.6);
+  color: white;
+  border: none;
+  cursor: pointer;
+  z-index: 9999;
+  padding: 4px 10px;
+  border-radius: 4px;
+}
+
+@media (max-width: 768px) {
+  #zoomPreview .modal-close-btn {
+    top: 5px;
+    right: 5px;
+    font-size: 20px;
+    padding: 2px 8px;
+  }
+}

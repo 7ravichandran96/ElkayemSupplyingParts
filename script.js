@@ -18,6 +18,13 @@ document.addEventListener("DOMContentLoaded", () => {
   navIcon.className = "fas fa-bars";
   toggleBtn.appendChild(navIcon);
 
+  function getImageURL(path) {
+    if (!path) return "";
+    if (path.startsWith("http://") || path.startsWith("https://")) return path;
+    const encoded = path.split("/").map(encodeURIComponent).join("/");
+    return `https://raw.githubusercontent.com/7ravichandran96/ElkayemSupplyingParts/main/${encoded}`;
+  }
+
   toggleBtn.addEventListener("click", () => {
     const isOpen = !navBar.classList.contains("hide");
     navBar.classList.toggle("hide");
@@ -176,11 +183,16 @@ document.addEventListener("DOMContentLoaded", () => {
 
   document.addEventListener("keydown", e => {
     if (e.key === "Escape") {
-      $("modal").classList.add("hidden");
-      $("deleteModal").classList.add("hidden");
-      zoomPreview.classList.add("hidden");
-      zoomImage.style.transform = "none";
-      zoomPreview.onmousemove = null;
+      document.querySelectorAll('.modal, .popup').forEach(modal => {
+        if (!modal.classList.contains("hidden")) {
+          modal.classList.add("hidden");
+        }
+      });
+      if (!zoomPreview.classList.contains("hidden")) {
+        zoomPreview.classList.add("hidden");
+        zoomImage.style.transform = "none";
+        zoomPreview.onmousemove = null;
+      }
       showToast("info", "close", "", "Closed modal or preview");
     }
   });
@@ -228,13 +240,12 @@ document.addEventListener("DOMContentLoaded", () => {
       card.className = "card";
 
       const img = document.createElement("img");
-      img.src = p["image name"];
+      img.src = getImageURL(p["image name"]);
       img.alt = p["part name"];
       img.onclick = () => {
         zoomImage.src = img.src;
         zoomPreview.classList.remove("hidden");
 
-        // Handle mouse-based rotation
         zoomPreview.onmousemove = e => {
           const rect = zoomPreview.getBoundingClientRect();
           const centerX = rect.width / 2;
@@ -291,7 +302,7 @@ document.addEventListener("DOMContentLoaded", () => {
     $("contribution").value = part["Contribution"];
     $("partName").value = part["part name"];
     $("partNumber").value = part["part number"];
-    $("previewImg").src = part["image name"] || "";
+    $("previewImg").src = getImageURL(part["image name"] || "");
     $("modal").classList.remove("hidden");
     showToast("info", "edit", part["part name"], `Editing "${part["part name"]}"`);
   }
@@ -302,4 +313,39 @@ document.addEventListener("DOMContentLoaded", () => {
     $("deleteText").textContent = `Delete "${part["part name"]}"?`;
     $("deleteModal").classList.remove("hidden");
   }
+});
+
+// Enhance modal and popup close behavior
+document.addEventListener("DOMContentLoaded", () => {
+  // Add close buttons to all modals/popups
+  document.querySelectorAll('.modal, .popup').forEach(modal => {
+    if (!modal.querySelector('.modal-close-btn')) {
+      const closeBtn = document.createElement('button');
+      closeBtn.textContent = '×';
+      closeBtn.className = 'modal-close-btn';
+      closeBtn.style.cssText = `
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        font-size: 24px;
+        background: none;
+        border: none;
+        cursor: pointer;
+        z-index: 9999;
+      `;
+      closeBtn.addEventListener('click', () => {
+        modal.classList.add("hidden");
+      });
+      modal.appendChild(closeBtn);
+    }
+  });
+
+  // Close modal when clicking outside content
+  window.addEventListener('click', function (event) {
+    document.querySelectorAll('.modal, .popup').forEach(modal => {
+      if (!modal.classList.contains("hidden") && event.target === modal) {
+        modal.classList.add("hidden");
+      }
+    });
+  });
 });
