@@ -16,14 +16,18 @@
 </head>
 <body>
 
+  <!-- Nav toggle checkbox (hidden) -->
+  <input type="checkbox" id="navToggle" class="nav-toggle" hidden />
+
   <!-- Scroll Progress -->
   <div id="scrollIndicator"></div>
 
   <!-- Header -->
   <header class="header-bar">
-    <button id="toggleNav" class="btn icon icon-wrapper">
+    <!-- Toggle button is now a label for the checkbox -->
+    <label for="navToggle" id="toggleNav" class="btn icon icon-wrapper" aria-label="Toggle navigation">
       <i class="ri-menu-line fallback-icon" data-fallback="bi-list lucide-menu"></i>
-    </button>
+    </label>
     <h1 id="headerTitle">Elkayem - All Parts</h1>
     <div class="header-controls">
       <div class="search-box icon-wrapper">
@@ -39,8 +43,11 @@
     </div>
   </header>
 
-  <!-- Sidebar -->
+  <!-- Sidebar Nav -->
   <aside id="navBar" class="nav fixed-nav hide"></aside>
+
+  <!-- Mobile Overlay to close nav -->
+  <label for="navToggle" id="navOverlay" class="nav-overlay"></label>
 
   <!-- Main Content -->
   <main class="main-content full">
@@ -52,12 +59,13 @@
   <div id="toast" class="toast"></div>
 
   <!-- Scroll to Top -->
-  <button id="scrollTopBtn" class="scroll-top icon-wrapper">
+  <button id="scrollTopBtn" class="scroll-top icon-wrapper" aria-label="Scroll to top">
     <i class="ri-arrow-up-line fallback-icon" data-fallback="bi-arrow-up lucide-arrow-up"></i>
   </button>
 
   <!-- Image Zoom Preview -->
-  <div id="zoomPreview" class="zoom-preview hidden">
+  <div id="zoomPreview" class="zoom-preview hidden" role="dialog" aria-modal="true" aria-label="Image preview">
+    <button class="zoom-close-btn hidden" aria-label="Close preview"></button>
     <img id="zoomImage" src="" alt="Zoomed Image" />
   </div>
 
@@ -80,7 +88,6 @@
           <input type="text" id="partNumber" required />
           <label>Upload Image</label>
           <input type="file" id="imageFile" accept="image/*" />
-          
         </div>
         <div class="form-preview">
           <img id="previewImg" class="preview" alt="Preview Image" />
@@ -106,25 +113,22 @@
   </div>
 
   <footer class="footer">
-  <div class="footer-content">
-    <p>&copy; 2025 <strong>Elkayem Supplying Parts</strong>. All rights reserved.</p>
-    <p>Version: <strong>1.0.0</strong></p>
-    <blockquote>
-     
-      <strong>Requested by:</strong><span><h3> R Prabhakaran  </h3></span><br />
-      <strong>Designed by:</strong> R Ravichandran  <br /><br />
-      <strong>Co - Support:</strong> Sales Department<br />
-      A Janathul Firdhous <br />
-      R Sivakumar  <br />
-      K Manoj Kumar <br />
-      N Poovizhi <br /><br />
-     
-      <strong>Department:</strong> NPD <br/>
-      <strong>Design Support By:</strong> R Chanthira Sekaran<br />
-    </blockquote>
-  </div>
-</footer>
-
+    <div class="footer-content">
+      <p>&copy; 2025 <strong>Elkayem Supplying Parts</strong>. All rights reserved.</p>
+      <p>Version: <strong>1.0.0</strong></p>
+      <blockquote>
+        <strong>Requested by:</strong><span><h3> R Prabhakaran  [Sales AM]</h3></span><br />
+        <strong>Designed by:</strong> R Ravichandran  <br /><br />
+        <strong>Co - Support:</strong> Sales Department<br />
+        A Janathul Firdhous <br />
+        R Sivakumar  <br />
+        K Manoj Kumar <br />
+        N Poovizhi <br /><br />
+        <strong>Department:</strong> NPD <br/>
+        <strong>Design Support By:</strong> R Chanthira Sekaran<br />
+      </blockquote>
+    </div>
+  </footer>
 
   <!-- JS Scripts -->
   <script src="./script.js"></script>
