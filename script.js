@@ -167,7 +167,7 @@ document.addEventListener("DOMContentLoaded", () => {
     mainContent.classList.toggle("full");
     toggleBtn.classList.toggle("inverted");
     navIcon.className = isOpen ? "fas fa-bars" : "fas fa-xmark";
-    showToast("info", isOpen ? "collapse" : "expand", "", "Sidebar toggled");
+    showToast("info", isOpen ? "collapse" : "expand", "", "Customer Name Opened");
   });
 
   // Toast notification helper
@@ -186,27 +186,72 @@ document.addEventListener("DOMContentLoaded", () => {
     setTimeout(() => toast.classList.remove("show"), 3000);
   }
 
+(function setHeaderFont() {
+  const FONT_NAME = 'ElkayemHeaderFont';
+  
+  // Example: Google Fonts WOFF2 link — you can replace this URL with your own raw.githubusercontent.com hosted .woff2
+  const fontUrl = 'https://fonts.gstatic.com/s/montserrat/v25/JTURjIg1_i6t8kCHKm45_cJD3g3D_w.woff2';
+  
+  const css = `
+    @font-face {
+      font-family: '${FONT_NAME}';
+      src: url('${fontUrl}') format('woff2');
+      font-weight: 400;
+      font-style: normal;
+      font-display: swap;
+    }
+
+    #headerTitle {
+      font-family: '${FONT_NAME}', sans-serif;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      display: flex;
+      align-items: center;
+      gap: 8px; /* space between logo and text */
+    }
+
+    #headerTitle span img {
+      height: 32px; /* adjust logo size */
+      vertical-align: middle;
+    }
+  `;
+
+  const style = document.createElement('style');
+  style.type = 'text/css';
+  style.appendChild(document.createTextNode(css));
+  document.head.appendChild(style);
+})();
+
+
   // Fetch JSON data and initialize UI
   fetch("images.json")
-    .then(res => {
-      if (!res.ok) throw new Error("Not found");
-      return res.json();
-    })
-    .then(json => {
-      data = json.map(p => ({
-        ...p,
-        id: `${p["customer name"]}${p["part number"]}`.replace(/\s+/g, "")
-      }));
-      renderUI();
-      showToast("success", "load", "", "images.json loaded");
-      navBar.classList.add("hide");
-      mainContent.classList.add("full");
-      toggleBtn.classList.add("inverted");
-      navIcon.className = "fas fa-bars";
-    })
-    .catch(() => {
-      showToast("warning", "load", "", "images.json not found");
-    });
+  .then(res => {
+    if (!res.ok) throw new Error("Not found");
+    return res.json();
+  })
+  .then(json => {
+    data = json.map(p => ({
+      ...p,
+      id: `${p["customer name"]}${p["part number"]}`.replace(/\s+/g, "")
+    }));
+
+    // ✅ Set default customer to "TVS M GROUP"
+    currentCustomer = "TVS M GROUP";
+    $("headerTitle").textContent = `ELKAYEM - ${currentCustomer} PARTS`;
+
+    renderUI();
+    renderParts(); // ensure filtering applies to TVS M GROUP
+    showToast("success", "load", "", "File loaded");
+
+    navBar.classList.add("hide");
+    mainContent.classList.add("full");
+    toggleBtn.classList.add("inverted");
+    navIcon.className = "fas fa-bars";
+  })
+  .catch(() => {
+    showToast("warning", "load", "", "File Loading error");
+  });
+
 
   // Scroll progress bar and scroll-to-top button logic
   window.addEventListener("scroll", () => {
@@ -390,7 +435,7 @@ document.addEventListener("DOMContentLoaded", () => {
       btn.className = currentCustomer === name ? "active" : "";
       btn.onclick = () => {
         currentCustomer = name;
-        $("headerTitle").textContent = name === "All" ? "Elkayem - All Parts" : `Elkayem - ${name} Parts`;
+        $("headerTitle").textContent = name === "ALL" ? "ELKAYEM - ALL PARTS" : `ELKAYEM - ${name} PARTS`;
         renderNav();
         renderParts();
         showToast("info", "view", name, `Now viewing "${name}" parts`);
