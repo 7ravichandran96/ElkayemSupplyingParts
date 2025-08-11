@@ -490,6 +490,12 @@ body, html {
   padding: 10px;
 
 }
+.footer-credits{
+  margin: 0;
+  padding: 10px;
+  width:100vw ;
+  background-color:  white ;
+}
 }
 
 
@@ -600,6 +606,13 @@ body.zoom-active {
     order: -1;
     margin-bottom: 1rem;
   }
+
+  .footer-credits{
+  margin: 0;
+  padding: 10px;
+  width:100vw ;
+  background-color:  white ;
+}
 }
 
 /* Overlay */
