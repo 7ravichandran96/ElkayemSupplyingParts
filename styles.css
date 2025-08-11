@@ -581,7 +581,7 @@ body, html {
 }
 }
 /* Approximate match for 365px wide mobile devices */
-@media only screen and (max-width: 375px) {
+@media only screen and (min-width: 375px) {
   /* Styles here */
     .header-bar{
     display: flex;
