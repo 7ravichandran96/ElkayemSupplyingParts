@@ -441,7 +441,7 @@ body, html {
   /* Nav hidden offscreen initially */
  .nav.fixed-nav {
   position: fixed;
-  top: 170px;
+  top: 160px;
   left: 0;
   width: 80%;
   max-width: 320px;
