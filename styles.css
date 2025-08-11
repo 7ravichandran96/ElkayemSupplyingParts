@@ -440,54 +440,12 @@ body, html {
 
   }
 
-@media (max-width: 480px) {
-  .header-bar{
-    display: flex;
-    height: 160px;
-    align-items: center;
-    justify-content: space-between; 
-    width: auto;
-
-  }
-  #toggleNav{
-    position: absolute;
-    top: 130px;
-    right: 25px;
-    background: #f2dfb8;
-    border-radius: 50%;
-  }
-  #headderTitle{
-    font-size: 0.8rem;
-    margin-left: 10px;
-    margin-right: 10px;
-    text-align: center;
-  }
-#navBar{
-      top:180px
-}
-.footer-credits{
-  margin: 0 auto;
-  padding: 35px;
-  width:100vw ;
-  background-color:  white ;
-}
-.header-bar h5{
-    margin: 0;
-    width: 80vw;
-    text-align: center;
-    
-  }
-  .logo{
-  width: 80px;
-  height: 35px;
-}
-}
 
 /* iPad portrait */
 @media only screen 
   and (min-device-width: 768px) 
   and (max-device-width: 1024px) 
-  and (orientation: portrait) {
+   {
   /* styles here */
   .header-bar{
     display: flex;
@@ -499,7 +457,7 @@ body, html {
   }
   #toggleNav{
     position: absolute;
-    top: 15px;
+    top: 115px;
     left: 25px;
     background: #f2dfb8;
     border-radius: 30%;
@@ -533,55 +491,11 @@ body, html {
 }
 
 /* iPad landscape */
-@media only screen 
-  and (min-device-width: 768px) 
-  and (max-device-width: 1024px) 
-  and (orientation: landscape) {
-  /* styles here */
-  .header-bar{
-    display: flex;
-    height: 180px;
-    align-items: center;
-    justify-content: space-evenly; 
-    width: auto;
 
-  }
-  #toggleNav{
-    position: absolute;
-    top: 145px;
-    right: 20px;
-    background: #f2dfb8;
-    border-radius: 30%;
-    z-index: 1000;
-  }
-  #headderTitle{
-    font-size: 0.8rem;
-    margin-left: 10px;
-    margin-right: 10px;
-    text-align: center;
-  }
- .header-bar h5{
-    margin: 0;
-    width: 80vw;
-    text-align: center;
-    
-  }
-  .logo{
-  width: 80px;
-  height: 35px;
-}
-#navBar{
-      top:220px
-}
-.footer-credits{
-  margin: 0 auto;
-  padding: 35px;
-  width:100vw ;
-  background-color:  white ;
-}
-}
 /* Approximate match for 365px wide mobile devices */
-@media only screen and (min-width: 375px) {
+@media only screen 
+  and (min-device-width: 320px) 
+  and (max-device-width: 767px){
   /* Styles here */
     .header-bar{
     display: flex;
