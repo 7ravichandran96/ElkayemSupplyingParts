@@ -444,7 +444,7 @@ body, html {
 /* iPad portrait */
 @media only screen 
   and (min-device-width: 768px) 
-  and (max-device-width: 144px) 
+  and (max-device-width: 1440px) 
    {
   /* styles here */
   .header-bar{
