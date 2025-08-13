@@ -591,8 +591,55 @@ body, html {
 }
 }
 @media only screen 
-  and (min-device-width: 1441px) 
+  and (min-device-width: 1440px) 
   and (max-device-width: 2160px) 
+   {
+  /* styles here */
+  .header-bar{
+    display: flex;
+    height: 130px;
+    align-items: center;
+    justify-content: space-evenly; 
+    width: auto;
+
+  }
+  #toggleNav{
+    position: absolute;
+    top: 85px;
+    left: 25px;
+    background: #f2dfb8;
+    border-radius: 30%;
+    z-index: 1000;
+  }
+  #headderTitle{
+   
+    margin-left: 10px;
+    margin-right: 10px;
+    text-align: center;
+  }
+#navBar{
+      top:150px
+}
+.footer-credits{
+  margin: 0 auto;
+  padding: 35px;
+  width:100vw ;
+  background-color:  white ;
+}
+.header-bar h5{
+    margin: 0;
+    width: 80vw;
+    text-align: center;
+    
+  }
+  .logo{
+  width: 80px;
+  height: 35px;
+}
+}
+@media only screen 
+  and (min-device-width: 2160px) 
+  and (max-device-width: 3840px) 
    {
   /* styles here */
   .header-bar{
