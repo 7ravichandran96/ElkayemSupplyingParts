@@ -495,7 +495,7 @@ body, html {
 /* Approximate match for 365px wide mobile devices */
 @media only screen 
   and (min-device-width: 300px) 
-  and (max-device-width: 768px){
+  and (max-device-width: 767px){
   /* Styles here */
     .header-bar{
     display: flex;
@@ -1036,7 +1036,7 @@ body, html {
 /* iPad portrait */
 @media only screen 
   and (min-device-width: 768px) 
-  and (max-device-width: 1024px) 
+  and (max-device-width: 1440px) 
    {
   /* styles here */
   .header-bar{
