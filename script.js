@@ -95,7 +95,7 @@ function bindUI() {
 /* ========= LOAD & VALIDATE DATA ========= */
 async function loadInitialData() {
   try {
-    const res = await fetch("images.json");
+    const res = await fetch("./images.json");
     const data = await res.json();
 
     // normalize and add flags
