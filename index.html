@@ -112,17 +112,7 @@
 </footer>
 
   <!-- ================= JS ================= -->
-  <script src="./Js/data.js"></script>
-  <script src="./Js/ui.js"></script>
-  <script src="./Js/form.js"></script>
-  <script src="./Js/nav.js"></script>
-  <script src="./Js/export.js"></script>
-  <script src="./Js/viewer.js"></script>
-  <script src="./Js/zoom.js"></script>
-  <script src="./Js/main.js"></script>
-  <script src="./Js/cards.js"></script>
-  <!-- <script src="./Js/edit&delete.js"></script> -->
-<script>
+  <script>
 fetch("./images.json")
   .then(response => {
       if (!response.ok) throw new Error("Network response was not ok");
@@ -137,6 +127,17 @@ fetch("./images.json")
       // alert("Error loading JSON!"); // test error toast
   });
 </script>
+
+  <script src="../Js/data.js"></script>
+  <script src="../Js/ui.js"></script>
+  <script src="../Js/form.js"></script>
+  <script src="../Js/nav.js"></script>
+  <script src="../Js/export.js"></script>
+  <script src="../Js/viewer.js"></script>
+  <script src="../Js/zoom.js"></script>
+  <script src="../Js/main.js"></script>
+  <script src="../Js/cards.js"></script>
+  <!-- <script src="./Js/edit&delete.js"></script> -->
 
 
 </body>
