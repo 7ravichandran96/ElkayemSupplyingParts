@@ -19,7 +19,7 @@
   <link rel="stylesheet" href="./css/zoom.css">
   <link rel="stylesheet" href="./css/form.css">
   <!-- <link rel="stylesheet" href="./css/edit&delete.css"> -->
-<script defer src="./script.js"></script>
+
 
 </head>
 <body>
@@ -112,31 +112,17 @@
 </footer>
 
   <!-- ================= JS ================= -->
-  <script>
-fetch("./images.json")
-  .then(response => {
-      if (!response.ok) throw new Error("Network response was not ok");
-      return response.json();
-  })
-  .then(data => {
-      console.log("JSON loaded successfully:", data);
-      // alert("JSON l  oaded successfully!"); // test success toast
-  })
-  .catch(error => {
-      console.error("Error loading JSON:", error);
-      // alert("Error loading JSON!"); // test error toast
-  });
-</script>
-
-  <script src="../Js/data.js"></script>
-  <script src="../Js/ui.js"></script>
-  <script src="../Js/form.js"></script>
-  <script src="../Js/nav.js"></script>
-  <script src="../Js/export.js"></script>
-  <script src="../Js/viewer.js"></script>
-  <script src="../Js/zoom.js"></script>
-  <script src="../Js/main.js"></script>
-  <script src="../Js/cards.js"></script>
+  
+  <script src="./Js/script.js"></script>
+  <script src="./Js/data.js"></script>
+  <script src="./Js/ui.js"></script>
+  <script src="./Js/form.js"></script>
+  <script src="./Js/nav.js"></script>
+  <script src="./Js/export.js"></script>
+  <script src="./Js/viewer.js"></script>
+  <script src="./Js/zoom.js"></script>
+  <script src="./Js/main.js"></script>
+  <script src="./Js/cards.js"></script>
   <!-- <script src="./Js/edit&delete.js"></script> -->
 
 
