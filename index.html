@@ -121,15 +121,22 @@
   <script src="js/main.js"></script>
   <script src="js/cards.js"></script>
   <script src="js/edit&delete.js"></script>
-  <script>
+<script>
 fetch("images.json")
-  .then(response => response.json())
-  .then(data => {
-      console.log(data);
-      // Your code to display images here
+  .then(response => {
+      if (!response.ok) throw new Error("Network response was not ok");
+      return response.json();
   })
-  .catch(error => console.error("Error loading JSON:", error));
+  .then(data => {
+      console.log("JSON loaded successfully:", data);
+      alert("JSON loaded successfully!"); // test success toast
+  })
+  .catch(error => {
+      console.error("Error loading JSON:", error);
+      alert("Error loading JSON!"); // test error toast
+  });
 </script>
+
 
 </body>
 </html>
