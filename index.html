@@ -121,6 +121,16 @@
   <script src="js/main.js"></script>
   <script src="js/cards.js"></script>
   <script src="js/edit&delete.js"></script>
+  <script>
+fetch("images.json")
+  .then(response => response.json())
+  .then(data => {
+      console.log(data);
+      // Your code to display images here
+  })
+  .catch(error => console.error("Error loading JSON:", error));
+</script>
+
 </body>
 </html>
 
