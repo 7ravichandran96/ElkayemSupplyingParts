@@ -1,0 +1,352 @@
+/* ========================= */
+/* Scroll indicator */
+/* ========================= */
+#scrollIndicator {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 0%;
+  height: 4px;
+  background-color: #ffb703;
+  z-index: 9999;
+}
+
+/* ========================= */
+/* Header bar */
+/* ========================= */
+.header-bar {
+  position: sticky;
+  top: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 15px;
+  background: #f2dfb8;
+  border-bottom: 1px solid #ddd;
+  z-index: 1000;
+  gap: 1rem;
+}
+
+/* Header title */
+#headerTitle {
+  position: relative;
+  left: 80px;
+  background: #fff;
+  padding: 10px 15px;
+  border-radius: 15px;
+  font-size: large;
+  font-weight: bold;
+  color: #333;
+  transition: background 0.3s, color 0.3s, transform 0.2s;
+}
+#headerTitle:hover {
+  background: #ffec91;
+  color: #c28500;
+}
+#headerTitle:active {
+  background: #c28500;
+  color: #fff;
+  transform: scale(0.97);
+}
+
+/* ========================= */
+/* Header controls + Search */
+/* ========================= */
+.header-controls {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.search-box {
+  position: absolute;
+  flex: 1 1 auto;
+  max-width: 600px;
+  width: 300px;
+  padding: 8px 12px;
+  border-color: #fff;
+  left: 550px;
+}
+
+.search-box input {
+  width: 100%;
+  padding: 8px 36px 8px 10px;
+  border-radius: 18px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+  transition: border-color 0.3s, box-shadow 0.3s;
+  text-indent: 15px;
+}
+
+.search-box input:focus {
+  border-color: #c28500;
+  outline: none;
+  box-shadow: 0 0 6px rgba(194, 133, 0, 0.5);
+}
+
+.search-box i {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
+  color: #c28500;
+}
+
+
+/* ========================= */
+/* Side navigation (off-canvas) */
+/* ========================= */
+.nav.fixed-nav {
+  position: fixed;
+  margin-top: 25px;
+  left: 0px; /* hidden off-canvas by default */
+  width: 280px;
+  height: calc(100vh - 60px);
+  background: #f2dfb8;
+  overflow-y: auto;
+  z-index: 2000;
+  box-shadow: 2px 0 6px rgba(0,0,0,0.1);
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  box-sizing: border-box;
+  word-wrap: break-word;
+  transition: left 0.3s ease-in-out;
+  transition-delay: 0.2s;
+}
+
+/* When nav is open */
+.nav.fixed-nav.open {
+  left: -250px;
+  transition: left 0.3s ease-in-out;
+  transition-delay: 0.1s;
+}
+
+/* Nav buttons */
+.nav.fixed-nav .nav-item,
+.nav.fixed-nav .nav-customer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  min-height: 80px;
+  padding: 5px 8px;
+  background: #fff7d1;
+  border: 1px solid #ddd;
+  border-left: 5px solid transparent;
+  font-size: 0.95rem;
+  color: #333;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s, border-left-color 0.3s, transform 0.2s, color 0.2s;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+.nav.fixed-nav .nav-item:hover,
+.nav.fixed-nav .nav-customer:hover {
+  background: #ffec91;
+  border-left-color: #c28500;
+  transform: translateX(4px);
+}
+.nav.fixed-nav .nav-item:active,
+.nav.fixed-nav .nav-customer:active {
+  background: #c28500;
+  border-left-color: #8b5e00;
+  color: #fff;
+  transform: scale(0.98);
+}
+
+/* ✅ Persistent active state */
+.nav.fixed-nav .nav-item.active,
+.nav.fixed-nav .nav-customer.active {
+  background: #c28500;
+  border-left-color: #8b5e00;
+  color: #fff;
+}
+
+/* Thumbnails inside nav */
+.nav.fixed-nav .nav-customer img.nav-thumb {
+  width: 50px;
+  height: 40px;
+  object-fit: cover;
+  margin-right: 8px;
+  border-radius: 4px;
+  flex-shrink: 0;
+}
+
+/* Label + Badge wrapper */
+.nav.fixed-nav .nav-label {
+  flex: 1 1 auto;
+  overflow-wrap: break-word;
+  word-break: break-word;
+  white-space: normal;
+}
+
+/* Badge styling */
+.nav.fixed-nav .badge {
+  flex-shrink: 0;
+  background: #ffec91;
+  color: #c28500;
+  font-weight: bold;
+  padding: 2px 6px;
+  border-radius: 4px;
+  text-align: center;
+  min-width: 22px;
+  transition: background 0.3s, color 0.3s;
+}
+.nav.fixed-nav .badge:hover {
+  background: #ffb703;
+  color: #fff;
+}
+.nav.fixed-nav .badge:active {
+  background: #c28500;
+  color: #fff;
+}
+
+/* ========================= */
+/* Main content adjustments */
+/* ========================= */
+.main-content {
+  margin-left: 0;
+  padding: 1rem;
+  transition: margin-left 0.3s ease-in-out;
+}
+
+.main-content.shifted {
+  margin-left: 0px; /* Match nav width exactly */
+}
+
+/* Gallery container */
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding: 1rem;
+}
+
+/* Individual cards */
+
+
+/* Images */
+.card img.card-image {
+  width: 100%;
+  height: 200px;
+  object-fit: contain;
+  background: #fffdf0;
+  transition: transform 0.3s ease;
+}
+
+.card {
+  position: relative;
+  overflow: hidden;
+  transition: box-shadow 0.3s ease, background 0.5s ease;
+  background: #ffec91; /* initial background */
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.card img.card-image {
+  display: block;
+  width: 100%;
+  height: auto;
+  transition: transform 0.3s ease;
+}
+
+.card:hover img.card-image,
+.card:focus-within img.card-image {
+  transform: scale(1.05);
+}
+
+/* Background animation on hover & focus */
+.card:hover,
+.card:focus-within {
+  animation: bgPulse 2s infinite alternate ease-in-out;
+  box-shadow: 0 0 15px 4px #c28500;
+  background: linear-gradient(135deg, #ffec91 0%, #c28500 100%);
+  outline: none;
+}
+
+/* Smooth transition reset when not hovered */
+.card:not(:hover):not(:focus-within) {
+  animation: none;
+  box-shadow: none;
+  background: #ffec91;
+}
+
+/* Keyframes for subtle background pulse */
+@keyframes bgPulse {
+  0% {
+    background: linear-gradient(135deg, #ffec91 0%, #c28500 100%);
+    box-shadow: 0 0 5px 1px #c28500;
+  }
+  100% {
+    background: linear-gradient(135deg, #c28500 0%, #ffec91 100%);
+    box-shadow: 0 0 20px 6px #ffec91;
+  }
+}
+
+/* Info section */
+.card .info {
+  padding: 10px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.card .info p { 
+  margin: 2px 0; 
+  word-break: break-word; 
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Card actions */
+.card-actions {
+  display: flex;
+  justify-content: space-between;
+  gap: 5px;
+  padding: 0 16px;
+  position: absolute;
+  bottom: 10px;
+  width: calc(100% - 32px);
+}
+
+.card-actions button { flex: 1; }
+
+/* No data message */
+.no-data { text-align: center; margin-top: 2rem; font-size: 1.1rem; }
+
+/* ========================= */
+/* Scroll to top button */
+/* ========================= */
+.scroll-top {
+  position: sticky;
+  bottom: 30px;
+  right: 30px;
+  background: #f2dfb8;
+  border: 2px solid #c7a977;
+  border-radius: 12px;
+  font-size: 1.5rem;
+  padding: 0.4rem 0.8rem;
+  cursor: pointer;
+  z-index: 9999;
+  display: none;
+  transition: background 0.3s, transform 0.3s, color 0.3s;
+}
+.scroll-top:hover {
+  background: #ffb703;
+  color: #fff;
+  transform: translateY(-3px);
+    transition: background 0.3s, transform 0.3s, color 0.2s;
+
+}
+.scroll-top:active {
+  background: #c28500;
+  color: #db5c5c;
+  transform: scale(0.95);
+    transition: background 0.3s, transform 0.3s, color 0.2s;
+
+}

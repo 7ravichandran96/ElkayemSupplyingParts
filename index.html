@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<html data-theme="light">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ELKAYEM Supplying Parts</title>
+
+  <!-- ================= CSS ================= -->
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/buttons.css">
+  <link rel="stylesheet" href="css/cards.css">
+  <link rel="stylesheet" href="css/toast.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/footer.css">
+  <link rel="stylesheet" href="css/zoom.css">
+  <link rel="stylesheet" href="css/form.css">
+  <link rel="stylesheet" href="css/edit&delete.css">
+
+</head>
+<body>
+
+  <!-- ================= HEADER ================= -->
+  <header class="header-bar">
+  <h1 id="headerTitle">ELKAYEM - ALL PARTS</h1>
+  <div class="header-controls">
+    <button id="toggleNav" class="btn icon">☰</button>
+    <div class="search-box">
+      <input type="text" id="searchInput" placeholder="Search parts...">
+      <i class="fas fa-search"></i>
+    </div>
+    <button id="addPartBtn" class="btn primary">Add Part</button>
+    <button id="downloadJson" class="btn secondary">Export JSON</button>
+    <button id="uploadJsonBtn" class="btn secondary">Load JSON</button>
+    <input type="file" id="jsonFileInput" accept=".json" class="hidden">
+  </div>
+</header>
+<div id="scrollTarget"></div>
+
+
+  <!-- ================= SIDE NAV ================= -->
+  <nav id="navBar" class="nav fixed-nav"></nav>
+
+  <!-- ================= MAIN CONTENT ================= -->
+<main class="main-content">
+  <div id="partsContainer" class="card-container"></div>
+  <p id="noData" class="no-data hidden">No parts available</p>
+</main>
+
+  <!-- ================= MODAL / FORM ================= -->
+  <div id="modal" class="modal hidden">
+    <form id="partForm" class="form">
+      <h2 id="formTitle">Add Part</h2>
+      <input type="hidden" id="partId">
+      <label>Customer Group: <input type="text" id="customerGroup" required></label>
+      <label>Customer Name: <input type="text" id="customerName" required></label>
+      <label>Model: <input type="text" id="model"></label>
+      <label>Part Name: <input type="text" id="partName" required></label>
+      <label>Part No: <input type="text" id="partNumber" required></label>
+      <label>Contribution: <input type="text" id="contribution"></label>
+      <label>Classification: <input type="text" id="classification"></label>
+      <label>Segment Wise: <input type="text" id="segmentWise"></label>
+      <label>Component Wt: <input type="text" id="componentWt"></label>
+      <label>Image: <input type="file" id="imageFile" accept="image/*"></label>
+      <p>Preview: <span id="imagePath">None</span></p>
+      <img id="previewImg" src="" alt="Preview Image">
+      <div class="form-actions">
+        <button type="submit" class="btn primary">Save</button>
+        <button type="button" id="cancelBtn" class="btn secondary">Cancel</button>
+      </div>
+    </form>
+  </div>
+
+  <!-- ================= TOAST ================= -->
+  <div id="toast" class="toast"></div>
+
+  <!-- ================= IMAGE ZOOM ================= -->
+ <div id="zoomPreview" class="hidden" aria-hidden="true" role="dialog" aria-modal="true">
+  <button id="zoomCloseBtn" aria-label="Close zoom preview">X</button>
+  <div id="zoomTitle" aria-live="polite"></div>
+  <canvas id="zoomCanvas"></canvas>
+  <div id="loadingSpinner" class="hidden">Loading...</div>
+</div>
+
+
+  <!-- ================= SCROLL INDICATOR ================= -->
+  <div id="scrollIndicator"></div>
+
+
+  <footer class="footer">
+  <div class="footer-content">
+    <p>&copy; 2025 <strong>Elkayem Supplying Parts</strong>. All rights reserved.</p>
+    <p>Version: <strong>0.0.2</strong></p>
+    <blockquote class="footer-credits">
+      <strong>Project By :  </strong><span><br /><h3> R Prabhakaran  [ Sales HOD ] </h3></span><br />
+      <strong>Designed by :  </strong><h3>R Ravichandran  </h3><br /><br />
+      <strong>Co - Support :</strong>  Sales Department<br /><br />
+      <span>A Janathul Firdhous, </span><span>R Sivakumar, </span><span>R Nagaraj, </span><span>K Manoj Kumar</span><br />
+      <span>T Shanmugam, </span> <span>M Basker, </span><span>N Shanmugam, </span> <span>M Balaji</span><br />
+      <span>N Poovizhi, </span> <span>M Deepa, </span><span> R Uma Mageshwari, </span><span> K Ramyashree</span><br />
+      <span>T Ravi Shankar, </span><span>R Marimuthu, </span><span>R Madheshwaran</span><br />
+      <span>N Puviyarasu, </span><span>S R Manikandan</span><br />
+      <span>T Sivasakthivel, </span><span>T Vignesh</span><br />
+      <strong>Co - Support Department :</strong> NPD <br/>
+      <strong>Design's Support By :</strong> R Chanthira Sekaran<br />
+    </blockquote>
+  </div>
+</footer>
+
+  <!-- ================= JS ================= -->
+  <script src="js/data.js"></script>
+  <script src="js/ui.js"></script>
+  <script src="js/form.js"></script>
+  <script src="js/nav.js"></script>
+  <script src="js/export.js"></script>
+  <script src="js/viewer.js"></script>
+  <script src="js/zoom.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/cards.js"></script>
+  <script src="js/edit&delete.js"></script>
+</body>
+</html>
+
+
+

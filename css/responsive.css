@@ -1,0 +1,29 @@
+/* Mobile Portrait */
+@media (max-width: 480px) {
+  .nav.fixed-nav {
+    width: 160px;
+    top: 50px;
+  }
+  .main-content { margin-left: 160px; padding: 0.5rem; }
+}
+
+/* Mobile Landscape / Tablets */
+@media (min-width: 481px) and (max-width: 768px) {
+  .nav.fixed-nav {
+    width: 200px;
+    top: 50px;
+  }
+  .main-content { margin-left: 200px; padding: 0.8rem; }
+}
+
+/* Tablet / Small Desktop */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .nav.fixed-nav { width: 240px; top: 60px; }
+  .main-content { margin-left: 240px; padding: 1rem; }
+}
+
+/* Large Desktop */
+@media (min-width: 1025px) {
+  .nav.fixed-nav { width: 260px; top: 60px; }
+  .main-content { margin-left: 260px; padding: 1.2rem; }
+}

@@ -1,0 +1,99 @@
+/* ========================= */
+/* Base button styles */
+/* ========================= */
+.btn {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background 0.25s ease-in-out, transform 0.15s ease;
+  color: #fff;
+  user-select: none;
+}
+.btn:hover,
+.btn:focus-visible {
+  opacity: 0.9;
+  transform: translateY(-1px);
+}
+.btn:active {
+  transform: scale(0.97);
+}
+.btn:focus-visible {
+  outline: 2px solid #c28500;
+  outline-offset: 2px;
+}
+
+/* Variants */
+.btn.primary {
+  background: #10b981; /* Add / Save */
+}
+.btn.primary:hover,
+.btn.primary:focus-visible {
+  background: #0e8c66;
+}
+
+.btn.secondary {
+  background: #3b82f6; /* Export / Load */
+}
+.btn.secondary:hover,
+.btn.secondary:focus-visible {
+  background: #1e63c1;
+}
+
+.btn.edit {
+  background: #f59e0b; /* Edit */
+}
+.btn.edit:hover {
+  background: #d48607;
+}
+
+.btn.delete {
+  background: #ef4444; /* Delete */
+}
+.btn.delete:hover {
+  background: #c41c1c;
+}
+
+.btn.icon {
+  background: #fffdd0;
+  border: 1px solid #ccc;
+  color: #333;
+  font-size: 1.2rem;
+  padding: 6px 12px;
+  transition: background 0.25s ease-in-out, color 0.25s ease-in-out;
+}
+
+/* ========================= */
+/* Toggle Nav button */
+/* ========================= */
+#toggleNav {
+  position: absolute;
+  left: 10px;
+  background: #fff;
+  color: #333;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 8px 13px;
+  font-size: larger;
+  cursor: pointer;
+  transition: background 0.3s ease-in-out, color 0.3s ease-in-out, transform 0.2s ease;
+}
+
+#toggleNav:hover {
+  background: #ef4444;
+  color: #fff;
+}
+
+#toggleNav:focus {
+  background: #c28500;
+  color: #fff;
+  outline: none;
+  transform: translateY(-1px);
+}
+
+#toggleNav:active {
+  background: #8b5e00;
+  color: #fff;
+  transform: scale(0.95);
+}

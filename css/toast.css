@@ -1,0 +1,35 @@
+/* toast.css */
+.toast {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 12px 24px;
+  border-radius: 8px;
+  color: #fff;
+  font-weight: 600;
+  font-size: 1rem;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.4s ease;
+  z-index: 10000;
+  user-select: none;
+}
+.toast.show { 
+  opacity: 1; 
+  pointer-events: auto; 
+}
+
+/* Toast types with distinct colors */
+.toast.success { background-color: #10b981; } /* green for success */
+.toast.info    { background-color: #3b82f6; } /* blue for info */
+.toast.warning { background-color: #f59e0b; } /* orange for warning */
+.toast.error   { background-color: #ef4444; } /* red for error */
+
+/* Remove reference to "soft delete" */
+.toast .message { font-weight: 600; }
+
+/* Optional: small shadow for better visibility */
+.toast.show {
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
